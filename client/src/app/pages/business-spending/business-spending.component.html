@@ -1,0 +1,46 @@
+<div id="Spending">
+    <div class="container">
+        <div class="row" style="place-content: center;">
+            <div class="card">                
+                <div class="card-body" data-spy="scroll">
+                    <span class="span">
+                        <h4 style="margin-right: 90px;" class="card-title">Ingresar Gastos</h4>
+                        <button class="btn btn-info" (click)="newProduct()">Nuevo</button>
+                        <button class="btn btn-warning" (click)="other()">Otro</button>
+                    </span>                              
+                        <app-table
+                            style="text-align: center;"
+                            [TitleArray]='TitleArray'
+                            [Component]='"Spending"'
+                            (product)='product($event)'
+                            (quantity)='quantity($event)'
+                            >
+                        </app-table>
+                        <p style="font-size: 11px;">*Selecione un producto - Ingrese uno nuevo - Declare otro tipo de gasto.</p>  
+                </div>
+            </div>
+            <div class="card2">                
+                <div class="card-body" style="text-align: center;">
+                    <div id="print">
+                        <h4 class="card-title">Carrito de Gastos</h4>
+                        <app-table
+                            [TitleArray]='TitleArrayTrolley'
+                            [Component]='"trolley"'
+                            [Array]='ArrayTrolley'
+                            [TotalValue]='Total'
+                            (delete)='Delete($event)'
+                            >
+                        </app-table>
+                        <br>
+                    </div>
+                    <button class="btn btn-info" [disabled]='ArrayTrolley.length === 0' (click)="guardar()">Guardar</button>
+                    &nbsp;
+                    <button class="btn btn-danger" (click)="clean()">Carcelar</button>
+                    
+                </div>
+            </div>
+
+        
+        </div>
+    </div> 
+</div>

@@ -1,0 +1,41 @@
+.login {
+    width: 100vw;
+    height: 100vh;
+    background: url(../../../assets/login.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    
+}
+
+
+.card-body{
+    background-color: rgba($color: #ffffff, $alpha: 0.8);
+    margin-inline-start: auto;
+    max-width: 300px;
+    min-height: 100vh;
+    margin-right: 50px;
+
+}
+
+
+@media (max-width: 910.00px) {
+    .card-body{
+        margin-inline-start: inherit;
+        text-align: -webkit-left;
+    }
+    .login{
+        text-align: -webkit-center;
+        background: white;
+    }
+}
+@media (max-height: 500.00px) {
+    .card-body{
+        margin-inline-start: inherit;
+        text-align: -webkit-left;
+    }
+    .login{
+        text-align: -webkit-center;
+        background: white;
+    }
+}
+

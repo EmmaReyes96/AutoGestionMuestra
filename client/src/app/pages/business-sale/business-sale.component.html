@@ -1,0 +1,44 @@
+<div id="Sale">
+    <div class="container">
+        <div class="row" style="place-content: center;">
+            <div class="card" *ngIf="ArrayExist">                
+                <div class="card-body" style="text-align: center;" data-spy="scroll">
+                    <h4 class="card-title">Productos</h4>                    
+                        <app-table
+                            [TitleArray]='TitleArray'
+                            [Component]='"Sale"'
+                            (product)='product($event)'
+                            (quantity)='quantity($event)'
+                            >
+                        </app-table>
+                        <p class="text">*si te quedas sin unidades no prodras seguir vendiendo</p>
+                </div>
+            </div>
+            <div class="card2" *ngIf="ArrayExist">                
+                <div class="card-body" style="text-align: center;">
+                    <div id="print">
+                        <h4 class="card-title">Carrito</h4>
+                        <app-table
+                            [TitleArray]='TitleArrayTrolley'
+                            [Component]='"trolley"'
+                            [Array]='Array'
+                            [TotalValue]='Total'
+                            (edit)='Edit($event)'
+                            (delete)='Delete($event)'
+                            >
+                        </app-table>
+                        <br>
+                    </div>
+                    <button class="btn btn-info" [disabled]='Array.length === 0' (click)="guardar()">Guardar</button>
+                    &nbsp;
+                    <button class="btn btn-danger" (click)="clean()">Carcelar</button>
+                    
+                </div>
+            </div>        
+        </div>
+        <div style="text-align: center; color: gray; margin-top: 10%;" *ngIf="!ArrayExist">
+            <h4> - No hay inventario para poder realizar una venta  - </h4>  
+            <p>Puede agregar nuevos productos a través de los <a routerLink="/Home/BusinessPage/Spending">Gastos</a>  </p>        
+        </div>
+    </div> 
+</div>

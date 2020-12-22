@@ -1,0 +1,85 @@
+<div id="User">
+    <div class="container">
+        <div class="row">
+            <div class="card">      
+                <div class="card-body">
+                    <br>
+                    <form
+                            [formGroup]="userForm"
+                            (ngSubmit)="UpdateUser()">
+        
+                        <div class="form-group">
+                            <label>Nombre de Usuario</label>
+                            <div class="input-group flex-nowrap">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="far fa-user"></i>
+                                    </span>
+                                </div>
+                                <input type="text" 
+                                        class="form-control" 
+                                        placeholder="Username"
+                                        formControlName='name'>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <div class="input-group flex-nowrap">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="far fa-envelope"></i>
+                                    </span>
+                                </div>
+                                <input type="text" 
+                                        class="form-control"
+                                        placeholder="Email"
+                                        formControlName='email'
+                                        [readOnly]='user.google'>
+                            </div>
+                        </div>
+                        <hr>
+                        <button type="submit" 
+                                class="btn btn-info button"
+                                [disabled]='userForm.invalid'>
+                                Guardar
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="card">      
+                <div class="card-body">
+                    <br>
+                    <form>
+                        <div style="text-align: center;">
+                            <img *ngIf="!imgTemp" [src]="user.imgUrl" class="img">
+                            <img *ngIf="imgTemp" [src]="imgTemp" class="img">
+                        </div>
+                                
+                        <div class="form-group">
+                            <label>Actualizar imagen</label>
+                            <input type="file"
+                                    (change)="changeImg($event.target.files[0])">
+                        </div>
+                        
+                        <hr>
+                        <button type="submit" 
+                                class="btn btn-info button"
+                                [disabled]="!imgCh"
+                                (click)="UploadImg()">
+                                
+                            Guardar
+                        </button>
+    
+                    </form>
+                </div>
+            </div>
+        </div>  
+        <br>
+        <div class="box3" type="button" routerLink="/Home">
+            <div style="text-align: center;">
+                <i class="far fa-arrow-alt-circle-left"></i>
+                <h3>Inicio</h3>
+            </div>
+        </div>  
+    </div>
+</div>

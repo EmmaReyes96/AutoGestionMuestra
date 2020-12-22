@@ -1,0 +1,17 @@
+#UserPage{
+    background: #f5f5f5;
+    width: 100vw;
+    min-height: calc(100vh - 50px);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.side{
+    background-color: #0191b4;
+}
+
+@media (max-width: 1350px) {
+    .side {
+        height: 10rem;   
+    }
+}

@@ -1,0 +1,48 @@
+.business{
+    background: #f5f5f5;
+    width: 100vw;
+    min-height: calc(100vh - 50px);
+    text-align: center;
+}
+.box{
+    display: flex;
+    flex-wrap: wrap;
+    place-content: center;
+}
+
+.box2{
+    width: 12rem;
+    height: 20rem;
+    margin: 2rem;
+    text-align: -webkit-center;
+}
+
+.box3{
+    color: darkgray;
+    inline-size: -webkit-fill-available;
+}
+
+i{
+    font-size: 25px;
+    margin-right: 5px;
+    margin-top: 6px;
+}
+
+.circle{
+    width: 11rem;
+    height: 11rem;
+    margin-top: 2rem;
+    clip-path: circle(50% at center);
+    display: grid;
+    justify-content: center;
+}
+
+img{
+    height: -webkit-fill-available;
+}
+
+.fa-edit{
+    margin-left: 5px;
+    font-size: 18px;
+    color: #d69e0f;
+}

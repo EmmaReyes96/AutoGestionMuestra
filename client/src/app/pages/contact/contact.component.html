@@ -1,0 +1,92 @@
+<div id="Contacts">
+    <div class="container">
+        <div class="row" style="place-content: center;">
+            <div class="card">                
+                <div class="card-body" style="text-align: center;">
+                    <h5 class="card-title">Nuevo Contacto</h5>
+                   
+                    <br>
+                    <form [formGroup]='ContactForm'>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">Nombre</span>
+                            </div>
+                            <input type="text" 
+                                    class="form-control" 
+                                    placeholder="Emmanuel A. Reyes"
+                                    formControlName='name' 
+                                    aria-describedby="basic-addon1">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">Celular</span>
+                            </div>
+                            <input type="text" 
+                                    class="form-control" 
+                                    placeholder="03704800008"
+                                    oninput="event.target.value = event.target.value.replace(/[^0-9]*/g,'');"
+                                    formControlName='mobile'  
+                                    aria-describedby="basic-addon1">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">Tel. Fijo</span>
+                            </div>
+                            <input type="text" 
+                                    class="form-control"
+                                    placeholder="04480008"
+                                    oninput="event.target.value = event.target.value.replace(/[^0-9]*/g,'');"
+                                    formControlName='phone'  
+                                    aria-describedby="basic-addon1">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">Email</span>
+                            </div>
+                            <input type="text" 
+                                    class="form-control"
+                                    placeholder="correo@mail.com" 
+                                    formControlName='email'  
+                                    aria-describedby="basic-addon1">
+                        </div>
+                    </form>
+                    <div class="col text-danger">
+                        <p *ngIf="ContactForm.controls['name'].invalid && ContactForm.controls['name'].dirty">El nombre es requerido</p>
+                    </div>
+                    <div class="col text-danger">
+                        <p *ngIf="ContactForm.controls['mobile'].invalid && ContactForm.controls['mobile'].dirty">Ingreso un carácter  incorrecto o ha excedido el límite de caracteres</p>
+                    </div>
+                    <div class="col text-danger">
+                        <p *ngIf="ContactForm.controls['phone'].invalid && ContactForm.controls['phone'].dirty">Ingreso un carácter  incorrecto o ha excedido el límite de caracteres</p>
+                    </div>
+                    <div class="col text-danger">
+                        <p *ngIf="ContactForm.controls['email'].invalid && ContactForm.controls['email'].dirty">El email debe ser valido</p>
+                    </div>
+                    <hr>
+                    <br>
+                    <button *ngIf="SaveEdit == 'Save'" class="btn btn-info" [disabled]="!ContactForm.controls['name'].valid" (click)="newContact()">Guardar</button>
+                    <button *ngIf="SaveEdit == 'Edit'" class="btn btn-warning" [disabled]="!ContactForm.controls['name'].valid" (click)="EditContact()">Editar</button>
+                    &nbsp;
+                    <button class="btn btn-danger" (click)="clean()">Limpiar</button>
+                    
+                </div>
+            </div>
+            
+            <div class="card2" >
+                <div class="card-body" style="text-align: center;">
+                    <h5>Lista de Contactos</h5>
+
+                        <app-table
+                                [TitleArray]='TitleArray'
+                                [Component]='"Contact"'
+                                (edit)='Edit($event)'
+                                (delete)='Delete($event)'
+                                >
+                        </app-table>
+
+                </div>
+            </div>
+
+        </div>
+    </div> 
+</div>

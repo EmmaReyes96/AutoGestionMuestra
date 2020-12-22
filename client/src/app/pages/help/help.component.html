@@ -1,0 +1,64 @@
+<div id="body">
+    <div id="Help">
+        <div class="container">
+            <div class="row">
+                <div class="card">                
+                    <div class="card-body" style="text-align: center;">
+                        <h5 class="card-title">Contacto</h5>
+                        <br>
+                        <form [formGroup]='messageForm'>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">Nombre</span>
+                                </div>
+                                <input type="text" 
+                                        class="form-control" 
+                                        placeholder="nombre..."
+                                        formControlName='name' 
+                                        aria-describedby="basic-addon1">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">Asunto</span>
+                                </div>
+                                <input type="text" 
+                                        class="form-control" 
+                                        placeholder="asunto..."
+                                        formControlName='affair' 
+                                        aria-describedby="basic-addon1">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">Email</span>
+                                </div>
+                                <input type="text" 
+                                        class="form-control" 
+                                        placeholder="email..."
+                                        formControlName='email' 
+                                        aria-describedby="basic-addon1">
+                            </div>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Mensaje</span>
+                                </div>
+                                <textarea class="form-control" 
+                                        placeholder="mensaje..."
+                                        aria-label="With textarea"
+                                        formControlName='message'>
+                                </textarea>
+                            </div>
+                        </form>
+                        <hr>
+                        <button class="btn btn-info" [disabled]='!messageForm.valid' (click)="Mailer()">Guardar</button>
+                        &nbsp;
+                        <button class="btn btn-danger" (click)="clean()">Limpiar</button>
+                        
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+    <div id="Footer">
+        <app-footer></app-footer>
+    </div>
+</div>

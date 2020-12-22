@@ -1,0 +1,53 @@
+<div id="SpendingFiles">
+    <div class="container">
+        <div class="row" style="place-content: center;">
+            <div class="card" *ngIf="ArrayExist">                
+                <div class="card-body" style="text-align: center;" data-spy="scroll">
+                    <h4 class="card-title">Registro de Gastos</h4> 
+                        <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0" *ngFor="let item of Array; let i=index">
+                            <ngb-panel>
+                                <ng-template ngbPanelHeader>
+                                    <div class="d-flex align-items-center justify-content-between">
+                                    <span><b>Fecha & Hora:</b>  {{item.reg_time | date:'dd-MM-yyyy  -  h:mm a'}} | <b>Monto:</b> ${{item.money}}</span>
+                                      <div>
+                                        <button ngbPanelToggle class="btn btn-sm btn-outline-primary ml-2"><i class="fas fa-arrow-alt-circle-down"></i></button>
+                                        <button type="button" class="btn btn-sm btn-outline-danger ml-2" (click)="print(i)"><i class="fas fa-print"></i></button>
+                                      </div>
+                                    </div>
+                                  </ng-template>
+                                <ng-template ngbPanelContent>
+                                    <table class="table ">
+                                        <thead>
+                                          <tr>
+                                            <th scope="col">Producto</th>
+                                            <th scope="col">Cantidad</th>
+                                            <th scope="col">Valor</th>
+                                            <th scope="col">Valor Total</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody *ngFor="let item2 of item.description">
+                                          <tr>
+                                            <th scope="row">{{item2.name}}</th>
+                                            <td>{{item2.quantity}}</td>
+                                            <td>${{item2.money}}</td>
+                                            <td>${{item2.totalValue}}</td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                </ng-template>
+                            </ngb-panel>
+                        </ngb-accordion>         
+                        <br>
+                        <div class="d-flex justify-content-center">
+                            <button class="btn btn-outline-info" (click)="changePages(-1)" [disabled]="prevPage == null"> {{prevPage}} < Anterior </button>
+                            &nbsp;
+                            <button class="btn btn-outline-warning" (click)="changePages(+1)" [disabled]="nextPage == null">Siguiente > {{nextPage}}</button>
+                        </div>       
+                </div>
+            </div>
+            <div style="text-align: center; color: gray; margin-top: 10%;" *ngIf="!ArrayExist">
+                <h4> - No se ha registrado ningún movimiento - </h4>        
+            </div>
+        </div>
+    </div> 
+</div>

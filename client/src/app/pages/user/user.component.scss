@@ -1,0 +1,38 @@
+#User{
+    margin-top: 20px;
+    display: flex; 
+}
+.img{
+    clip-path: circle(38% at center);
+    height: 150px;
+}
+.row{
+    justify-content: center;
+}
+.card{
+    height: 25rem;
+    width: 26rem;
+    margin: 10px; 
+    border-radius: 15px;
+    box-shadow: 0px 0px 14px -7px;
+}
+.box3{
+    color: darkgray;
+    inline-size: -webkit-fill-available;
+}
+.box3 i{
+    color: darkgray;
+    font-size: 25px;
+    margin-right: 5px;
+    margin-top: 6px;
+}
+i{
+    color: #0191b4;
+}
+.box{
+    margin-top: 20px;
+    margin-left: 65px;
+}
+.button{
+    width: -webkit-fill-available;
+}

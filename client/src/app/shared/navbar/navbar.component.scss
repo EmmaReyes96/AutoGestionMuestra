@@ -1,0 +1,46 @@
+#nav{
+    height: 50px;
+    width: 100vw;
+    box-shadow: 0px 0px 14px -7px;
+    background-color: white;
+}
+.icon{
+    color: #0191b4;
+    font-size: xx-large;
+    margin-right: 30px;    
+}
+.img{
+    height: 40px;
+    margin-top: 5px;  
+    margin-right: -30px;  
+    clip-path: circle(40% at center);   
+}
+.imgMenu{
+    height: 40px;  
+    clip-path: circle(40% at center);
+}
+#midrop1{
+    margin-right: 30px;
+    height: 50px;
+}
+#menu{
+    text-align: -webkit-center;
+}
+.subMenu{
+    color: #0191b4;
+}
+a{
+    text-decoration: none;
+}
+li{
+    list-style: none;
+}
+h5{
+    margin-top: 10px;
+    margin-right: 10px;
+    color: #0191b4;
+}
+h6{
+    max-width: min-content;
+    margin-top: 10px;
+}

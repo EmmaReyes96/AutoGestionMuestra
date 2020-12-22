@@ -1,0 +1,39 @@
+#Contacts{    
+    width: calc(100vw - 13rem);
+    min-height: calc(80vh - 50px);
+    text-align: -webkit-center;
+    display: flex;
+}
+.card{
+    width: 26rem;
+    margin: 10px; 
+    border-radius: 15px;
+    box-shadow: 0px 0px 14px -7px;
+}
+.card2{
+    background-color: white;
+    max-width: 40rem;
+    margin: 10px; 
+    border-radius: 15px;
+    box-shadow: 0px 0px 14px -7px;
+}
+.container{
+    margin-top: 20px;
+}
+
+@media (max-width: 580px) {
+    .card2{
+        max-width: 26rem;
+    }
+}
+
+@media (max-width: 1350px) {
+    #Contacts{
+        width: 100vw;
+    
+    }
+}
+
+::placeholder {
+    color: rgb(200, 200, 200);
+}

@@ -1,0 +1,48 @@
+#Balance{
+    height: 90vh;
+}
+
+.wallpaper{
+    position: absolute;
+    margin-left: 50px;
+}
+
+.card{
+    margin-top: 30px;
+    width: 26rem;
+    border-radius: 15px;
+    box-shadow: 0px 0px 14px -7px;
+}
+.container{
+    margin-left: 20px;
+}
+
+.btnIngresar{
+    color: #0191b4;
+}
+.btnEgresar{
+    color: red;
+}
+.fa-money-bill-alt{
+    margin-right: 10px;
+}
+.ingreso{
+    margin-left: 90px;
+    margin-right: 20px;
+}
+.egreso{
+    margin-left: 99px;
+    margin-right: 20px;
+}
+
+@media (max-width: 1070px) {
+    .wallpaper {
+        margin-left: 0px;  
+    }
+}
+
+@media (max-width: 1018px) {
+    .wallpaper {
+        display: none;  
+    }
+}

@@ -1,0 +1,50 @@
+#Money{
+    display: flex;
+    width: calc(100vw - 16rem);
+    min-height: calc(100vh - 50px);
+    text-align: -webkit-center;
+    background-image: url(../../../assets/vector-03.jpg);
+    background-repeat: no-repeat;
+
+}
+.row{
+    margin-top: 50px;
+}
+.card{
+    min-width: 26rem;
+    margin: 10px; 
+    border-radius: 15px;
+    box-shadow: 0px 0px 14px -7px;
+}
+
+.btnIngresar{
+    color: #0191b4;
+}
+.btnEgresar{
+    color: red;
+}
+.fa-money-bill-alt{
+    margin-right: 10px;
+}
+.ingreso{
+    margin-left: 90px;
+    margin-right: 20px;
+}
+.egreso{
+    margin-left: 99px;
+    margin-right: 20px;
+}
+
+@media (max-width: 1350px) {
+    #Money{
+        width: 100vw;
+    
+    }
+}
+
+@media (max-width: 590px) {
+    .card{
+        width: 26rem;
+    
+    }
+}

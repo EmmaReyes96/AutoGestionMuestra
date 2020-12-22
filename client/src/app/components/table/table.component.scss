@@ -1,0 +1,17 @@
+i{
+    color: #d69e0f;
+}
+
+.Scroll{
+    border: darkgray solid 1px;
+    overflow-y: scroll;
+    height: 22rem;
+}
+
+#delete{
+    color: red;
+}
+
+::placeholder {
+    color: rgb(200, 200, 200);
+}

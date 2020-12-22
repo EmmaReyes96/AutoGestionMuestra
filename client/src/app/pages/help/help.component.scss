@@ -1,0 +1,36 @@
+#body{
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 50px);
+}
+#Help{
+    margin-left: 5%;
+    height: 100%;
+}
+#Footer{
+    background-color: #0191b4;
+    width: 100vw;
+}
+.card{
+    width: 80vw;
+    margin: 30px; 
+    border-radius: 15px;
+    box-shadow: 0px 0px 14px -7px;
+}
+.container{
+    margin-left: 20px;
+}
+
+textarea {
+    min-height: 40px;
+    max-height: 200px;
+}
+
+@media (max-width: 850px) {
+    .container {
+      margin-left: -20px; 
+    }
+    #Help{
+        margin-left: 50px;
+    }
+}

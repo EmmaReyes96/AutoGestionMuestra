@@ -1,0 +1,37 @@
+<div id="nav" class="nav justify-content-end" >
+    <div class="col text-right">
+      <div ngbDropdown placement="bottom-right" class="d-inline-block">
+        <div ngbDropdownToggle id="midrop1" type="button" >
+          <ul style="display: inline-flex;">
+            <li>
+              <h5>{{name}}</h5>
+            </li>
+            <li class="nav-item">
+              <img class="img" [src]="imgUrl">
+            </li>
+          </ul>
+        </div>
+        <div ngbDropdownMenu id='menu' aria-labelledby="midrop1">
+            <img class="imgMenu" [src]="imgUrl">
+            <h6>{{name}}</h6>
+            <button ngbDropdownItem>
+              <a routerLink='/Home/User' class="subMenu"> 
+                <i class="fas fa-user-cog"></i> editar 
+              </a>          
+            </button>
+            <hr>
+            <button ngbDropdownItem>        
+              <a routerLink='/Home/Help' class="subMenu">
+                <i class="far fa-question-circle"></i> Ayuda
+              </a>
+            </button>
+            <hr>   
+            <button ngbDropdownItem>
+              <a (click)="exit()" class="subMenu"> 
+                <i class="fas fa-sign-in-alt"></i> Salir
+              </a>
+            </button>
+        </div>
+    </div>
+</div>
+

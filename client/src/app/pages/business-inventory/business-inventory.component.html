@@ -1,0 +1,87 @@
+<div id="Products">
+    <div class="container">
+
+        <div class="row" style="place-content: center;">
+            <div class="card" *ngIf="ArrayExist">                
+                <div class="card-body" style="text-align: center;">
+                    <br>
+                    <h4 class="card-title">Editar Producto</h4>
+                        <br>
+                        <form [formGroup]='ProductForm'>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">Nombre</span>
+                                </div>
+                                <input type="text" 
+                                        class="form-control" 
+                                        placeholder="Producto"
+                                        formControlName='name' 
+                                        aria-describedby="basic-addon1"
+                                        disabled='true'>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">Cantidad</span>
+                                </div>
+                                <input type="text" 
+                                        class="form-control" 
+                                        oninput="event.target.value = event.target.value.replace(/[^0-9]*/g,'');"
+                                        placeholder="000"
+                                        formControlName='quantity'  
+                                        aria-describedby="basic-addon1"
+                                        disabled='true'>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">Valor - $</span>
+                                </div>
+                                <input type="text" 
+                                        class="form-control" 
+                                        placeholder="00.00"
+                                        oninput="event.target.value = event.target.value.replace(/[^.0-9]*/g,'');"
+                                        formControlName='money'  
+                                        aria-describedby="basic-addon1">
+                            </div>
+                        </form>
+                        <hr>
+                        <br>
+                        <button class="btn btn-info" [disabled]='!ProductForm.valid' (click)="newProduct()">Guardar</button>
+                        &nbsp;
+                        <button class="btn btn-danger" (click)="clean()">Limpiar</button>
+                </div>
+            </div>
+
+            <div class="card" *ngIf="ArrayExist">
+                <div class="card-body " style="text-align: center;">
+                    <h4 class="card-title">Productos</h4>
+                    <p> Pagina: {{selectPage}} - Total de Productos: {{totalDocs}} </p>
+                    <br>
+                    <div class="table-responsive m-t-40">                    
+                                                  
+                        <app-table
+                            [TitleArray]='FromInventory'
+                            [Array]='Inventory'
+                            [Component]='"Inventory"'
+                            (edit)='Edit($event)'
+                            (delete)='Delete($event)'
+                            >
+                        </app-table>
+
+                        <div>
+                            <button class="btn btn-outline-info" (click)="changePages(-1)" [disabled]="prevPage == null"> {{prevPage}} < Anterior </button>
+                            &nbsp;
+                            <button class="btn btn-outline-warning" (click)="changePages(+1)" [disabled]="nextPage == null">Siguiente > {{nextPage}}</button>
+                        </div>
+
+                    </div>
+                </div>    
+            </div> 
+            <div style="text-align: center; color: gray; margin-top: 10%;" *ngIf="!ArrayExist">
+                <h4> - No hay inventario  - </h4>  
+                <p>Puede agregar nuevos productos a través de los <a routerLink="/Home/BusinessPage/Spending">Gastos</a>  </p>        
+            </div>
+        </div>
+    </div> 
+
+    
+</div>

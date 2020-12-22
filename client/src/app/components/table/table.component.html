@@ -1,0 +1,87 @@
+<div class="input-group mb-3" *ngIf="Component == 'Sale' || Component == 'Spending' || Component == 'Contact' || Component == 'BusiContact'">
+    <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Buscar</span>
+    </div>
+    <input type="text" 
+            class="form-control"
+            placeholder="nombre"
+            name='filterArray'
+            aria-describedby="basic-addon1"
+            [(ngModel)]='filterArray'>
+</div>
+
+<div class="dataTables_wrapper" [ngClass]="{'Scroll': Component == 'Sale' ||  Component == 'trolley' || Component == 'Spending' || Component == 'Contact' || Component == 'BusiContact'}">
+    <table class="table table-hover table-bordered" >
+             
+         <thead>
+             <tr role="row" class="table-secondary center" >
+                 <th *ngFor="let item of TitleArray">{{item}}</th>
+             </tr>
+         </thead>
+
+        <tbody *ngIf="Component == 'Inventory'">   
+            <tr class="center" *ngFor="let data of Array;">                 
+                <td>{{data.name}}</td>
+                <td>${{data.money}}</td>
+                <td>{{data.quantity}}</td>
+                <td><i class="fas fa-edit" type='Button' (click)="Edit(data)"></i></td>
+                <td><i class="fas fa-trash-alt" type='Button' (click)="Delete(data)"></i></td>
+            </tr>
+        </tbody>
+
+        <tbody *ngIf="Component == 'Sale'">   
+            <tr class="center" *ngFor="let data of Array | filter:filterArray;"  >                 
+                <td>{{data.name}}</td>
+                <td>${{data.money}}</td>
+                <td>{{data.quantity}}</td>
+                <td><i class="fas fa-cart-plus"  type='Button' (click)="cartPlus(data)"></i></td>
+            </tr>
+        </tbody>
+
+        <tbody *ngIf="Component == 'Contact' || Component == 'BusiContact'">   
+            <tr class="center" *ngFor="let data of Array | filter:filterArray;"  >                 
+                <td>{{data.name}}</td>
+                <td>{{data.mobile}}</td>
+                <td>{{data.phone}}</td>
+                <td>{{data.email}}</td>
+                <td><i class="fas fa-edit" type='Button' (click)="Edit(data)"></i></td>
+                <td><i class="fas fa-trash-alt" type='Button' (click)="Delete(data)"></i></td>
+            </tr>
+        </tbody>
+
+        <tbody *ngIf="Component == 'Spending'">   
+            <tr class="center" *ngFor="let data of Array | filter:filterArray;"  >                 
+                <td>{{data.name}}</td>
+                <td><i class="fas fa-cart-plus"  type='Button' (click)="cartPlus2(data)"></i></td>
+            </tr>
+        </tbody>
+
+        <tbody *ngIf="Component == 'trolley'">   
+            <tr class="center" *ngFor="let data of Array;"  >                 
+                <td>{{data.name}}</td>
+                <td>{{data.quantity}}</td>
+                <td>${{data.money}}</td>
+                <td>${{data.totalValue}}</td>
+                <td><i class="fas fa-edit" type='Button' (click)="EditTrolley(data)"></i></td>
+                <td><i id="delete" class="fas fa-trash-alt"  type='Button' (click)="Delete(data)"></i></td>
+            </tr>
+            
+        </tbody>
+
+        <tbody *ngIf="Component == 'Activity'">   
+            <tr *ngFor="let data of Array" [ngClass]="{'text-danger': data.operator == 'resta','text-success': data.operator == 'suma' }" class="center">
+                <td>
+                    <span *ngIf="data.operator == 'resta'">-</span>$ {{data.money}}
+                </td>
+                <td>{{data.description}}</td>
+                <td>{{data.reg_time | date:'dd-MM-yyyy'}}</td>
+            </tr>
+        </tbody>
+            
+ 
+     </table>      
+ </div>
+
+ <div *ngIf="Component == 'trolley'">
+            <th>Valor Total: ${{TotalValue}}</th>
+ </div>

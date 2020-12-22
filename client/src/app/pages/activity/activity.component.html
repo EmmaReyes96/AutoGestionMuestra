@@ -1,0 +1,29 @@
+<div id="Activity">
+    <div class="container">
+        <div class="card" *ngIf="ArrayExist">
+            <div class="card-body">
+                <h4 class="card-title">Actividad</h4>
+                <p> Pagina: {{selectPage}} - Total de Documentos: {{totalDocs}} </p>
+                <br>
+                <div class="table-responsive m-t-40">                    
+                                              
+                    <app-table
+                    [TitleArray]='FromHistory'
+                    [Array]='history'
+                    [Component]='"Activity"'
+                    >
+                    </app-table>
+
+                    <div>
+                        <button class="btn btn-outline-info" (click)="changePages(-1)" [disabled]="prevPage == null"> {{prevPage}} < Anterior </button>
+                        &nbsp;
+                        <button class="btn btn-outline-warning" (click)="changePages(+1)" [disabled]="nextPage == null">Siguiente > {{nextPage}}</button>
+                    </div>                    
+                </div>
+            </div>            
+        </div>        
+        <div style="text-align: center; color: gray; margin-top: 10%;" *ngIf="!ArrayExist">
+            <h4> - No se ha registrado ningún movimiento - </h4>        
+        </div>
+    </div>    
+</div>

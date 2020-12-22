@@ -1,0 +1,32 @@
+<div class="business">
+   <div class="box" >
+       <div *ngFor="let item of BusinessArray; let i=index">
+           <div class="box2">
+               <div class="circle" type="button" routerLink="/Home/BusinessPage/Balance" (click)='SelecBusiness(i)'>
+                   <img src="{{item.img}}" alt="">
+               </div>
+               <br>
+               <div style="display: inline-flex;">
+                    <h5>{{item.name}}</h5>
+                    <i class="far fa-edit" type='button' (click)="openEdit(i)"></i>
+               </div>
+           </div>
+       </div>
+        <div>
+            <div class="box2">
+                <div class="circle" type="button" (click)="open()">
+                    <img src="../../../assets/plus.png" alt="">
+                </div>
+                <br>
+                <h5>Añadir Negocio</h5>
+            </div>
+        </div>
+
+    <div class="box3" type="button" routerLink="/Home">
+        <div style="text-align: center;">
+            <i class="far fa-arrow-alt-circle-left"></i>
+            <h3>volver</h3>
+        </div>
+    </div>
+
+</div>

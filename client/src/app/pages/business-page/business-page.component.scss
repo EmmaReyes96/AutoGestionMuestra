@@ -1,0 +1,18 @@
+#BusinessPage{
+    background: #f5f5f5;
+    width: 100vw;
+    min-height: calc(100vh - 50px);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.side{
+    background-color: #d69e0f;
+    min-height: 10rem;
+}
+
+@media (max-width: 991px) {
+    .side {
+        height: 15rem;   
+    }
+}
